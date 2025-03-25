@@ -1,24 +1,24 @@
 # JavaScript Standard Modules
 
-The package includes independent ESM-modules for various use cases.
+The package offers standalone ECMAScript Modules (ESM) tailored for diverse use cases.​
 
 > [!NOTE]  
-> The library is in development mode. Many things are still under consideration and reflect my opinion that can change in future.
+> This library is currently in active development. Many aspects are under consideration and may evolve over time.​
 
-## Why use this library?
+## Why Choose This Library?
 
-Over time projects tend to depend on numerous number of small packages. When this is happens it is called dependency hell. On the flip side there are highly coupled, but still very useful libraries like lodash, which people try to avoid because they want have more transparency and control over internals, so the tree-shaking was possible.
+As projects grow, they often accumulate numerous small package dependencies, leading to what's commonly known as "dependency hell." Conversely, some developers avoid comprehensive yet tightly coupled libraries like Lodash to maintain greater transparency and control over their codebase, facilitating effective tree-shaking.
 
-JavaScript ecosystem evolves, but still we need some simple solutions. The idea behind this library is to collect these simple solutions, that:
+While the JavaScript ecosystem continues to evolve, there's an enduring need for straightforward solutions. This library aims to consolidate such solutions that are:
 
-- easy to use on different platforms or runtimes,
-- easy to include and compile, knowing that tree-shaking algorithm should not have additional AI module to reason about what is needed and what is not,
-- they should not have big amount of dependencies, that what it means to be `std`
-- and finally, even easy to copy. Did you like something? just copy into your project.
+- **Versatile Across Platforms and Runtimes**: Designed for seamless integration into various environments,
+- **Optimized for Compilation**: Structured to work harmoniously with tree-shaking algorithms, ensuring only necessary code is included without requiring complex analyses,
+- **Minimal Dependencies**: Emphasizing a standard (`std`) approach by reducing reliance on external packages
+- **Easily Adaptable**: If you find a module beneficial, feel free to copy it directly into your project.
 
-Each module should be easily bundled with it's dependencies or should not have any. So you can confidently import it and do not worry about dependency hell or that you need to import something additionally.
+Each module is designed to be bundled effortlessly with its dependencies, if any, allowing you to import them confidently without concerns about dependency issues or additional requirements.
 
-All modules are written in TypeScript and the package exports type definitions.
+All modules are crafted in TypeScript, and the package includes comprehensive type definitions to enhance your development experience.
 
 ## Usage
 
