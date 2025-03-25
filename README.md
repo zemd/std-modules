@@ -1,4 +1,5 @@
 # JavaScript Standard Modules
+[![npm](https://img.shields.io/npm/v/@zemd/std-modules?color=0000ff&label=npm&labelColor=000)](https://npmjs.com/package/@zemd/std-modules) 
 
 The package offers standalone ECMAScript Modules (ESM) tailored for diverse use cases.​
 
