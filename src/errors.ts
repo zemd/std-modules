@@ -20,7 +20,7 @@ export type ErrorCauseObject = {
   status?: number | null;
 
   /** null or a signal that a process received */
-  signal?: NodeJS.Signals | null;
+  signal?: globalThis.NodeJS.Signals | null;
 
   /** the current working directory of a process */
   cwd?: string;
@@ -37,7 +37,7 @@ export type ErrorCauseObject = {
   /** standard error from a process */
   stderr?: Buffer | string | null;
 
-  /** HTTP message, fetch.Response, or `@vltpkg/registry-client.CacheEntry` */
+  /** HTTP message, fetch.Response */
   response?:
     | IncomingMessage
     | Response
@@ -102,7 +102,7 @@ function create<
 }
 
 export const error = (message: string, cause?: ErrorCause, from?: From): Error => {
-  return create(Error, from ?? error, message, cause);
+  return create<Error>(Error, from ?? error, message, cause);
 };
 
 export const typeError = (message: string, cause?: ErrorCause, from?: From): TypeError => {
