@@ -1,0 +1,68 @@
+{
+  "name": "@zemd/std-modules",
+  "version": "0.0.0",
+  "description": "Standard modules for Everything",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    "./env": "./dist/env",
+    "./errors": "./dist/errors",
+    "./dom": "./dist/dom",
+    "./strings": "./dist/strings",
+    "./types": "./dist/types"
+  },
+  "author": {
+    "name": "Dmytro Zelenetskyi",
+    "email": "dmytro.zelenetskyi@gmail.com",
+    "url": "https://codeandgin.co"
+  },
+  "homepage": "https://github.com/zemd/std-modules",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zemd/std-modules.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zemd/std-modules/issues"
+  },
+  "keywords": [
+    "std",
+    "modules",
+    "utilities"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup --minify",
+    "test": "vitest --run",
+    "release": "pnpm run build && changeset publish",
+    "lint": "pnpm --stream run /^lint-.*/",
+    "lint-eslint": "eslint .",
+    "lint-publint": "publint",
+    "lint-types": "tsc --incremental --noEmit",
+    "prepare": "husky",
+    "preinstall": "npx only-allow pnpm",
+    "test:browser": "vitest"
+  },
+  "license": "BlueOak-1.0.0",
+  "packageManager": "pnpm@10.6.5+sha512.cdf928fca20832cd59ec53826492b7dc25dc524d4370b6b4adbf65803d32efaa6c1c88147c0ae4e8d579a6c9eec715757b50d4fa35eea179d868eada4ed043af",
+  "devDependencies": {
+    "@changesets/cli": "^2.28.1",
+    "@swc/core": "^1.11.13",
+    "@testing-library/dom": "^10.4.0",
+    "@types/node": "^22.13.13",
+    "@vitest/browser": "^3.0.9",
+    "@zemd/eslint-ts": "^1.0.13",
+    "@zemd/tsconfig": "^1.4.0",
+    "eslint": "^9.23.0",
+    "happy-dom": "^17.4.4",
+    "husky": "^9.1.7",
+    "only-allow": "^1.2.1",
+    "playwright": "^1.51.1",
+    "prettier": "^3.5.3",
+    "publint": "^0.3.9",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
+  }
+}
