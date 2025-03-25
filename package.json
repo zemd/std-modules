@@ -1,7 +1,7 @@
 {
   "name": "@zemd/std-modules",
   "version": "0.0.0",
-  "description": "Standard modules for Everything",
+  "description": "Standalone ECMAScript Modules for diverse use cases",
   "type": "module",
   "exports": {
     "./package.json": "./package.json",
