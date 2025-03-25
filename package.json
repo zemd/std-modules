@@ -5,11 +5,12 @@
   "type": "module",
   "exports": {
     "./package.json": "./package.json",
-    "./env": "./dist/env",
-    "./errors": "./dist/errors",
-    "./dom": "./dist/dom",
-    "./strings": "./dist/strings",
-    "./types": "./dist/types"
+    "./dom": "./dist/dom.js",
+    "./env": "./dist/env.js",
+    "./errors": "./dist/errors.js",
+    "./invariant": "./dist/invariant.js",
+    "./object": "./dist/object.js",
+    "./types": "./dist/types.js"
   },
   "author": {
     "name": "Dmytro Zelenetskyi",
