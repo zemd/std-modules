@@ -1,5 +1,6 @@
 # JavaScript Standard Modules
-[![npm](https://img.shields.io/npm/v/@zemd/std-modules?color=0000ff&label=npm&labelColor=000)](https://npmjs.com/package/@zemd/std-modules) 
+
+[![npm](https://img.shields.io/npm/v/@zemd/std-modules?color=0000ff&label=npm&labelColor=000)](https://npmjs.com/package/@zemd/std-modules)
 
 The package offers standalone ECMAScript Modules (ESM) tailored for diverse use cases.​
 
@@ -37,12 +38,13 @@ npm install @zemd/std-modules
 | env       | Utilities for extracting env variables                           | `import * as env from "@zemd/std-modules/env"`            |
 | errors    | Utility functions for Error creation inspired by `vltpkg`        | `import { error } from "@zemd/std-modules/errors"`        |
 | invariant | Simple invariant function. Inspired by `tiny-invariant` library. | `import { invariant } from "@zemd/std-modules/invariant"` |
-| object    | Missing utilities for object manipulation                        | `import * as obj from "@zemd/std-modules/object" `        |
+| objects   | Missing utilities for object manipulation                        | `import * as Objects from "@zemd/std-modules/objects" `   |
 | types     | Utility types for TypeScript                                     | `import { type Simplify } from "@zemd/std-modules/types"` |
+| promises  | Utility functions to work with promises                          | `import * as Promises from "@zemd/std-modules/promises"`  |
 
 ### Reference
 
-#### `@zemd/std-modules/object`
+#### `@zemd/std-modules/objects`
 
 | Name    | Description                                                                    |
 | ------- | ------------------------------------------------------------------------------ |
@@ -112,11 +114,58 @@ const nodeEnv = envRequired("NODE_ENV");
 
 #### `@zemd/std-modules/errors`
 
-| Name        | Description |
-| ----------- | ----------- |
-| error       | TBD.        |
-| typeError   | TBD.        |
-| syntaxError | TBD.        |
+| Name                              | Description                                             |
+| --------------------------------- | ------------------------------------------------------- |
+| error                             | builds a generic `Error`.                               |
+| typeError                         | builds a `TypeError`                                    |
+| syntaxError                       | builds a `SyntaxError`                                  |
+| rangeError                        | builds a `RangeError`                                   |
+| httpBadRequest                    | builds an `Error` with http message and status in cause |
+| httpUnauthorized                  | builds an `Error` with http message and status in cause |
+| httpPaymentRequired               | builds an `Error` with http message and status in cause |
+| httpForbidden                     | builds an `Error` with http message and status in cause |
+| httpNotFound                      | builds an `Error` with http message and status in cause |
+| httpMethodNotAllowed              | builds an `Error` with http message and status in cause |
+| httpNotAcceptable                 | builds an `Error` with http message and status in cause |
+| httpProxyAuthenticationRequired   | builds an `Error` with http message and status in cause |
+| httpRequestTimeout                | builds an `Error` with http message and status in cause |
+| httpConflict                      | builds an `Error` with http message and status in cause |
+| httpGone                          | builds an `Error` with http message and status in cause |
+| httpLengthRequired                | builds an `Error` with http message and status in cause |
+| httpPreconditionFailed            | builds an `Error` with http message and status in cause |
+| httpPayloadTooLarge               | builds an `Error` with http message and status in cause |
+| httpUriTooLong                    | builds an `Error` with http message and status in cause |
+| httpUnsupportedMediaType          | builds an `Error` with http message and status in cause |
+| httpRangeNotSatisfiable           | builds an `Error` with http message and status in cause |
+| httpExpectationFailed             | builds an `Error` with http message and status in cause |
+| httpImATeapot                     | builds an `Error` with http message and status in cause |
+| httpMisdirectedRequest            | builds an `Error` with http message and status in cause |
+| httpUnprocessableEntity           | builds an `Error` with http message and status in cause |
+| httpLocked                        | builds an `Error` with http message and status in cause |
+| httpFailedDependency              | builds an `Error` with http message and status in cause |
+| httpTooEarly                      | builds an `Error` with http message and status in cause |
+| httpUpgradeRequired               | builds an `Error` with http message and status in cause |
+| httpPreconditionRequired          | builds an `Error` with http message and status in cause |
+| httpTooManyRequests               | builds an `Error` with http message and status in cause |
+| httpRequestHeaderFieldsTooLarge   | builds an `Error` with http message and status in cause |
+| httpUnavailableForLegalReasons    | builds an `Error` with http message and status in cause |
+| httpInternalServerError           | builds an `Error` with http message and status in cause |
+| httpNotImplemented                | builds an `Error` with http message and status in cause |
+| httpBadGateway                    | builds an `Error` with http message and status in cause |
+| httpServiceUnavailable            | builds an `Error` with http message and status in cause |
+| httpGatewayTimeout                | builds an `Error` with http message and status in cause |
+| httpHttpVersionNotSupported       | builds an `Error` with http message and status in cause |
+| httpVariantAlsoNegotiates         | builds an `Error` with http message and status in cause |
+| httpInsufficientStorage           | builds an `Error` with http message and status in cause |
+| httpLoopDetected                  | builds an `Error` with http message and status in cause |
+| httpNotExtended                   | builds an `Error` with http message and status in cause |
+| httpNetworkAuthenticationRequired | builds an `Error` with http message and status in cause |
+
+#### `@zemd/std-modules/promises`
+
+| Name  | Description |
+| ----- | ----------- |
+| sleep |             |
 
 ## License
 
