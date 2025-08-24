@@ -110,14 +110,19 @@ const nodeEnv = envRequired("NODE_ENV");
 
 #### `@zemd/std-modules/math`
 
-| Name       | Description                                              |
-| ---------- | -------------------------------------------------------- |
-| `clamp`    | Clamps a number between a minimum and maximum value.     |
-| `lerp`     | Linear interpolation between two values.                 |
-| `round`    | Rounds a number to a specified number of decimal places. |
-| `random`   | Generates a random number between min and max values.    |
-| `degToRad` | Converts degrees to radians.                             |
-| `radToDeg` | Converts radians to degrees.                             |
+| Name                     | Description                                                                     |
+| ------------------------ | ------------------------------------------------------------------------------- |
+| `sign`                   | Returns the sign of a number: -1 for negative, 1 for positive, and 0 for zero.  |
+| `clamp`                  | Restricts a value to be within a specified range defined by values min and max. |
+| `clamp01`                | Clamps a number between 0 and 1. Alias to `clamp(x, 0, 1)`.                     |
+| `pingPong`               | Returns a value that increments and decrements between zero and the length.     |
+| `degToRad`               | Converts degrees to radians.                                                    |
+| `radToDeg`               | Converts radians to degrees.                                                    |
+| `wrap`                   | Wraps a value within a specified range [from, to).                              |
+| `angleDifferenceDegrees` | Calculates the difference between two angles in degrees.                        |
+| `angleDifferenceRadians` | Calculates the difference between two angles in radians.                        |
+| `normalize`              | Normalizes a value within a specified range to a 0-1 scale.                     |
+| `nextPowerOfTwo`         | Returns the next power of two greater than or equal to the given number.        |
 
 #### `@zemd/std-modules/dom`
 

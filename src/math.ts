@@ -13,7 +13,7 @@ export const sign = (x: number): -1 | 0 | 1 => {
 
 /**
  * Restricts a value to be within a specified range defined by values min and max. If the value is
- * min <= value <= max, returns value.  If the value is greater than max, return max; if the value
+ * min <= value <= max, returns value. If the value is greater than max, return max; if the value
  * is less than min, return min.
  * Otherwise, return the value unchanged.
  */
