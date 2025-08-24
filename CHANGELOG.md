@@ -1,5 +1,11 @@
 # @zemd/std-modules
 
+## 0.0.3
+
+### Patch Changes
+
+- 0aee6e4: add std math extentions
+
 ## 0.0.2
 
 ### Patch Changes
