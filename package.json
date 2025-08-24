@@ -9,6 +9,7 @@
     "./env": "./dist/env.js",
     "./errors": "./dist/errors.js",
     "./invariant": "./dist/invariant.js",
+    "./math": "./dist/math.js",
     "./object": "./dist/object.js",
     "./types": "./dist/types.js",
     "./promises": "./dist/promises"

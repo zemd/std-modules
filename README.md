@@ -38,6 +38,7 @@ npm install @zemd/std-modules
 | env       | Utilities for extracting env variables                           | `import * as env from "@zemd/std-modules/env"`            |
 | errors    | Utility functions for Error creation inspired by `vltpkg`        | `import { error } from "@zemd/std-modules/errors"`        |
 | invariant | Simple invariant function. Inspired by `tiny-invariant` library. | `import { invariant } from "@zemd/std-modules/invariant"` |
+| math      | Mathematical utility functions                                   | `import * as math from "@zemd/std-modules/math"`          |
 | objects   | Missing utilities for object manipulation                        | `import * as Objects from "@zemd/std-modules/objects" `   |
 | types     | Utility types for TypeScript                                     | `import { type Simplify } from "@zemd/std-modules/types"` |
 | promises  | Utility functions to work with promises                          | `import * as Promises from "@zemd/std-modules/promises"`  |
@@ -49,6 +50,7 @@ npm install @zemd/std-modules
 | Name    | Description                                                                    |
 | ------- | ------------------------------------------------------------------------------ |
 | `merge` | Deeply merging objects into one new object. Influenced by `deepmerge` package. |
+| `get`   | Get a value from an object using a path string or array of keys.               |
 
 #### `@zemd/std-modules/types`
 
@@ -106,11 +108,39 @@ const nodeEnv = envRequired("NODE_ENV");
 | ----------- | -------------------------------------------------------- |
 | `invariant` | Asserts the condition and throw an error if it is false. |
 
+#### `@zemd/std-modules/math`
+
+| Name       | Description                                              |
+| ---------- | -------------------------------------------------------- |
+| `clamp`    | Clamps a number between a minimum and maximum value.     |
+| `lerp`     | Linear interpolation between two values.                 |
+| `round`    | Rounds a number to a specified number of decimal places. |
+| `random`   | Generates a random number between min and max values.    |
+| `degToRad` | Converts degrees to radians.                             |
+| `radToDeg` | Converts radians to degrees.                             |
+
 #### `@zemd/std-modules/dom`
 
-| Name | Description |
-| ---- | ----------- |
-| TDB. |             |
+| Name                                 | Description                                               |
+| ------------------------------------ | --------------------------------------------------------- |
+| `caret`                              | Utilities for working with text caret position.           |
+| `check`                              | DOM element checking utilities.                           |
+| `cloneTree`                          | Clone DOM tree with optional filtering.                   |
+| `fragment`                           | Create and manipulate document fragments.                 |
+| `removeNestedElementsWithTagName`    | Remove nested elements with specific tag names.           |
+| `selection`                          | Text selection utilities.                                 |
+| `createCommentTreeWalker`            | Create a TreeWalker for comment nodes.                    |
+| `createElementWithTagNameIterator`   | Create an iterator for elements with specific tag names.  |
+| `createElementWithTagNameTreeWalker` | Create a TreeWalker for elements with specific tag names. |
+| `createParentElementsIterator`       | Create an iterator for parent elements.                   |
+| `createRangeTreeWalker`              | Create a TreeWalker for a specific range.                 |
+| `createRangeWalkerIterator`          | Create an iterator for walking through a range.           |
+| `getCommentNode`                     | Get comment nodes from DOM.                               |
+| `getElementByClientCoordinates`      | Get element at specific client coordinates.               |
+| `getNearestBlockElement`             | Find the nearest block-level element.                     |
+| `getNearestChildTextNode`            | Find the nearest child text node.                         |
+| `getNextSiblings`                    | Get next sibling elements.                                |
+| `getParentElements`                  | Get parent elements in the DOM hierarchy.                 |
 
 #### `@zemd/std-modules/errors`
 
@@ -163,9 +193,9 @@ const nodeEnv = envRequired("NODE_ENV");
 
 #### `@zemd/std-modules/promises`
 
-| Name  | Description |
-| ----- | ----------- |
-| sleep |             |
+| Name    | Description                                              |
+| ------- | -------------------------------------------------------- |
+| `sleep` | Pauses execution for a specified number of milliseconds. |
 
 ## License
 
