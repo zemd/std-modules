@@ -1,5 +1,11 @@
 # @zemd/std-modules
 
+## 0.0.4
+
+### Patch Changes
+
+- d622eb7: math: add gcd function, refactoring math module
+
 ## 0.0.3
 
 ### Patch Changes
