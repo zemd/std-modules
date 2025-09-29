@@ -3,14 +3,15 @@ import {
   sign,
   clamp,
   clamp01,
-  degToRad,
-  radToDeg,
+  degreesToRadians,
+  radiansToDegrees,
   pingPong,
   wrap,
-  angleDifferenceDegrees,
-  angleDifferenceRadians,
+  angleDeltaDegrees,
+  angleDeltaRadians,
   normalize,
   nextPowerOfTwo,
+  gcd,
 } from "./math";
 
 describe("sign", () => {
@@ -62,21 +63,21 @@ describe("clamp01", () => {
 
 describe("degToRad", () => {
   it("should convert degrees to radians", () => {
-    expect(degToRad(0)).toBe(0);
-    expect(degToRad(90)).toBeCloseTo(Math.PI / 2);
-    expect(degToRad(180)).toBeCloseTo(Math.PI);
-    expect(degToRad(360)).toBeCloseTo(2 * Math.PI);
-    expect(degToRad(-90)).toBeCloseTo(-Math.PI / 2);
+    expect(degreesToRadians(0)).toBe(0);
+    expect(degreesToRadians(90)).toBeCloseTo(Math.PI / 2);
+    expect(degreesToRadians(180)).toBeCloseTo(Math.PI);
+    expect(degreesToRadians(360)).toBeCloseTo(2 * Math.PI);
+    expect(degreesToRadians(-90)).toBeCloseTo(-Math.PI / 2);
   });
 });
 
 describe("radToDeg", () => {
   it("should convert radians to degrees", () => {
-    expect(radToDeg(0)).toBe(0);
-    expect(radToDeg(Math.PI / 2)).toBeCloseTo(90);
-    expect(radToDeg(Math.PI)).toBeCloseTo(180);
-    expect(radToDeg(2 * Math.PI)).toBeCloseTo(360);
-    expect(radToDeg(-Math.PI / 2)).toBeCloseTo(-90);
+    expect(radiansToDegrees(0)).toBe(0);
+    expect(radiansToDegrees(Math.PI / 2)).toBeCloseTo(90);
+    expect(radiansToDegrees(Math.PI)).toBeCloseTo(180);
+    expect(radiansToDegrees(2 * Math.PI)).toBeCloseTo(360);
+    expect(radiansToDegrees(-Math.PI / 2)).toBeCloseTo(-90);
   });
 });
 
@@ -123,18 +124,18 @@ describe("wrap", () => {
 
 describe("angleDifferenceDegrees", () => {
   it("should calculate angle differences in degrees", () => {
-    expect(angleDifferenceDegrees(0, 90)).toBe(90);
-    expect(angleDifferenceDegrees(0, 450)).toBe(90);
-    expect(angleDifferenceDegrees(350, 10)).toBe(20);
-    expect(angleDifferenceDegrees(10, 350)).toBe(-20);
+    expect(angleDeltaDegrees(0, 90)).toBe(90);
+    expect(angleDeltaDegrees(0, 450)).toBe(90);
+    expect(angleDeltaDegrees(350, 10)).toBe(20);
+    expect(angleDeltaDegrees(10, 350)).toBe(-20);
   });
 });
 
 describe("angleDifferenceRadians", () => {
   it("should calculate angle differences in radians", () => {
-    expect(angleDifferenceRadians(0, Math.PI)).toBeCloseTo(-Math.PI);
-    expect(angleDifferenceRadians(0, 3 * Math.PI)).toBeCloseTo(-Math.PI);
-    expect(angleDifferenceRadians(0, Math.PI / 2)).toBeCloseTo(Math.PI / 2);
+    expect(angleDeltaRadians(0, Math.PI)).toBeCloseTo(-Math.PI);
+    expect(angleDeltaRadians(0, 3 * Math.PI)).toBeCloseTo(-Math.PI);
+    expect(angleDeltaRadians(0, Math.PI / 2)).toBeCloseTo(Math.PI / 2);
   });
 });
 
@@ -196,5 +197,50 @@ describe("nextPowerOfTwo", () => {
     expect(nextPowerOfTwo(4)).toBe(4);
     expect(nextPowerOfTwo(16)).toBe(16);
     expect(nextPowerOfTwo(1024)).toBe(1024);
+  });
+});
+
+describe("findGreatestCommonDivisor", () => {
+  it("should calculate GCD of positive integers", () => {
+    expect(gcd(48, 18)).toBe(6);
+    expect(gcd(12, 8)).toBe(4);
+    expect(gcd(17, 13)).toBe(1);
+    expect(gcd(100, 25)).toBe(25);
+  });
+
+  it("should handle negative integers", () => {
+    expect(gcd(-12, 8)).toBe(4);
+    expect(gcd(12, -8)).toBe(4);
+    expect(gcd(-12, -8)).toBe(4);
+  });
+
+  it("should handle zero values", () => {
+    expect(gcd(0, 5)).toBe(5);
+    expect(gcd(5, 0)).toBe(5);
+    expect(gcd(0, 0)).toBe(0);
+  });
+
+  it("should handle edge cases", () => {
+    expect(gcd(1, 1)).toBe(1);
+    expect(gcd(1, 100)).toBe(1);
+    expect(gcd(Number.MAX_SAFE_INTEGER, 1)).toBe(1);
+  });
+
+  it("should throw TypeError for non-safe integers", () => {
+    expect(() => {
+      return gcd(1.5, 2);
+    }).toThrow(TypeError);
+    expect(() => {
+      return gcd(1, 2.5);
+    }).toThrow(TypeError);
+    expect(() => {
+      return gcd(Number.MAX_SAFE_INTEGER + 1, 2);
+    }).toThrow(TypeError);
+    expect(() => {
+      return gcd(Number.POSITIVE_INFINITY, 2);
+    }).toThrow(TypeError);
+    expect(() => {
+      return gcd(Number.NaN, 2);
+    }).toThrow(TypeError);
   });
 });

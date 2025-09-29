@@ -12,33 +12,40 @@ export const sign = (x: number): -1 | 0 | 1 => {
 };
 
 /**
- * Restricts a value to be within a specified range defined by values min and max. If the value is
- * min <= value <= max, returns value. If the value is greater than max, return max; if the value
- * is less than min, return min.
- * Otherwise, return the value unchanged.
+ * Restricts a value to be within a specified range. Useful for ensuring values stay within
+ * valid bounds for UI elements, progress bars, or game physics calculations.
  */
 export const clamp = (x: number, min: number, max: number): number => {
   return Math.min(Math.max(x, min), max);
 };
 
 /**
- * Clamps a number between 0 and 1. Alias to `clamp(x, 0, 1)`.
+ * Clamps a number between 0 and 1. Alias to `clamp(x, 0, 1)`. Commonly used for normalizing percentages,
+ * opacity values, or color components.
  */
 export const clamp01 = (x: number): number => {
   return clamp(x, 0, 1);
 };
 
-export const degToRad = (degrees: number): number => {
+/**
+ * Converts degrees to radians. Essential for trigonometric calculations,
+ * canvas rotations, and physics simulations.
+ */
+export const degreesToRadians = (degrees: number): number => {
   return (degrees * Math.PI) / 180;
 };
 
-export const radToDeg = (radians: number): number => {
+/**
+ * Converts radians to degrees. Useful for displaying human-readable angles
+ * and converting between mathematical calculations and user interfaces.
+ */
+export const radiansToDegrees = (radians: number): number => {
   return (radians * 180) / Math.PI;
 };
 
 /**
- * PingPong returns a value that increments and decrements between zero and the length.
- * It follows the triangle wave formula where the bottom is set to zero and the peak is set to length.
+ * Creates a triangle wave pattern that oscillates between 0 and a specified length.
+ * Ideal for creating smooth back-and-forth animations, pendulum effects, or breathing UI elements.
  */
 export const pingPong = (x: number, length: number): number => {
   const doubleLength = length * 2;
@@ -47,24 +54,12 @@ export const pingPong = (x: number, length: number): number => {
 };
 
 /**
- * Wraps a value within a specified range [from, to).
+ * Wraps a value within a specified range [from, to), creating cyclic behavior. Perfect for
+ * implementing angle wrapping, looping animations, circular buffers, or ensuring
+ * array indices stay within bounds.
  *
- * This function is useful for creating cyclic behaviors, such as:
- * - Wrapping angles to stay within 0-360 degrees
- * - Creating looping animations or counters
- * - Implementing periodic boundary conditions
- * - Ensuring array indices stay within bounds in circular buffers
- *
- * The function ensures the result is always within [from, to), where 'from' is inclusive
- * and 'to' is exclusive. If the input range is invalid (from > to), the parameters
- * are automatically swapped to create a valid range.
- *
- * ```js
- * wrap(5, 0, 3);    // Returns 2 (5 wraps around: 5 - 3 = 2)
- * wrap(-1, 0, 3);   // Returns 2 (-1 wraps around: -1 + 3 = 2)
- * wrap(7, 2, 5);    // Returns 4 (7 wraps to range [2,5): 7 - 3 = 4)
- * wrap(370, 0, 360); // Returns 10 (angle wrapping)
- * ```
+ * The result is always within [from, to) where 'from' is inclusive and 'to' is exclusive.
+ * Invalid ranges are automatically corrected by swapping the parameters.
  */
 export const wrap = (value: number, from: number, to: number): number => {
   let minValue = from;
@@ -84,43 +79,41 @@ export const wrap = (value: number, from: number, to: number): number => {
 };
 
 /**
- * Calculates the difference between two angles in degrees.
+ * Calculates the shortest angular distance between two angles in degrees.
  * ```js
- *   angleDifferenceDegrees(0, 90); // Returns 90
- *   angleDifferenceDegrees(0, 450); // Also returns 90
+ * angleDeltaDegrees(0, 90); // Returns 90
+ * angleDeltaDegrees(0, 450); // Returns 90
  * ```
+ * Essential for smooth rotation animations and determining optimal turning directions.
  */
-export const angleDifferenceDegrees = (currentAngle: number, targetAngle: number): number => {
+export const angleDeltaDegrees = (currentAngle: number, targetAngle: number): number => {
   return wrap(targetAngle - currentAngle, -180, 180);
 };
 
 /**
- * Calculates the difference between two angles in radians.
+ * Calculates the shortest angular distance between two angles in radians.
+ * Useful for mathematical computations involving trigonometric functions and physics simulations.
  * ```js
- *  angleDifferenceRadians(0, Math.PI); // Returns -Math.PI
- *  angleDifferenceRadians(0, 3 * Math.PI); // Also returns -Math.PI
+ * angleDeltaRadians(0, Math.PI); // Returns -Math.PI
+ * angleDeltaRadians(0, 3 * Math.PI); // Returns -Math.PI
  * ```
  */
-export const angleDifferenceRadians = (currentAngle: number, targetAngle: number): number => {
+export const angleDeltaRadians = (currentAngle: number, targetAngle: number): number => {
   return wrap(targetAngle - currentAngle, -Math.PI, Math.PI);
 };
 
 /**
- * Normalizes a value within a specified range [from, to] to a value between 0 and 1.
+ * Converts a value from one range to a normalized 0-1 scale. Commonly used for
+ * creating progress indicators, scaling measurements, or preparing data for interpolation.
  */
 export const normalize = (value: number, from: number, to: number): number => {
   return clamp((value - from) / (to - from), 0, 1);
 };
 
 /**
- * Returns the smallest power of 2 that is greater than or equal to the input value.
- *
- * ```js
- * nextPowerOfTwo(1);   // Returns 1
- * nextPowerOfTwo(3);   // Returns 4
- * nextPowerOfTwo(8);   // Returns 8
- * nextPowerOfTwo(15);  // Returns 16
- * ```
+ * Finds the smallest power of 2 that is greater than or equal to the input value.
+ * Essential for optimizing memory allocation, texture sizes, and buffer capacities
+ * in graphics programming and data structures.
  */
 export const nextPowerOfTwo = (inputValue: number): number => {
   if (!Number.isSafeInteger(inputValue)) {
@@ -154,4 +147,38 @@ export const nextPowerOfTwo = (inputValue: number): number => {
   // Note: No need for >> 32 since we're working within 32-bit safe range
 
   return x + 1;
+};
+
+/**
+ * Calculates the greatest common divisor of two integers using the Euclidean algorithm.
+ * Useful for simplifying fractions, finding common denominators, or optimizing
+ * grid layouts and proportional calculations.
+ *
+ * @throws {TypeError} When inputs are not safe integers
+ */
+export const gcd = (a: number, b: number): number => {
+  if (!Number.isSafeInteger(a) || !Number.isSafeInteger(b)) {
+    throw new TypeError("Both arguments must be safe integers");
+  }
+
+  // Handle edge cases
+  const absA = Math.abs(a);
+  const absB = Math.abs(b);
+
+  if (absA === 0) {
+    return absB;
+  }
+  if (absB === 0) {
+    return absA;
+  }
+
+  // Optimized iterative Euclidean algorithm
+  let x = absA;
+  let y = absB;
+
+  while (y !== 0) {
+    [x, y] = [y, x % y] as const;
+  }
+
+  return x;
 };
