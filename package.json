@@ -58,7 +58,7 @@
     "@zemd/eslint-ts": "^1.0.13",
     "@zemd/tsconfig": "^1.4.0",
     "eslint": "^9.23.0",
-    "happy-dom": "^19.0.1",
+    "happy-dom": "^20.0.0",
     "husky": "^9.1.7",
     "only-allow": "^1.2.1",
     "playwright": "^1.51.1",
