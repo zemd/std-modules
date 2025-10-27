@@ -54,7 +54,7 @@
     "@swc/core": "^1.11.13",
     "@testing-library/dom": "^10.4.0",
     "@types/node": "^24.0.1",
-    "@vitest/browser": "^3.0.9",
+    "@vitest/browser": "^4.0.3",
     "@zemd/eslint-ts": "^1.0.13",
     "@zemd/tsconfig": "^1.4.0",
     "eslint": "^9.23.0",
@@ -66,6 +66,6 @@
     "publint": "^0.3.9",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2",
-    "vitest": "^3.0.9"
+    "vitest": "^4.0.3"
   }
 }
