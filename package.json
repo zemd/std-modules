@@ -48,16 +48,17 @@
     "test:browser": "vitest"
   },
   "license": "BlueOak-1.0.0",
-  "packageManager": "pnpm@10.17.1+sha512.17c560fca4867ae9473a3899ad84a88334914f379be46d455cbf92e5cf4b39d34985d452d2583baf19967fa76cb5c17bc9e245529d0b98745721aa7200ecaf7a",
+  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd",
   "devDependencies": {
     "@changesets/cli": "^2.28.1",
-    "@swc/core": "^1.11.13",
+    "@swc/core": "^1.15.1",
     "@testing-library/dom": "^10.4.0",
     "@types/node": "^24.0.1",
-    "@vitest/browser": "^4.0.6",
-    "@zemd/eslint-ts": "^1.0.13",
+    "@vitest/browser": "^4.0.8",
+    "@vitest/browser-playwright": "^4.0.8",
+    "@zemd/eslint-ts": "^1.0.39",
     "@zemd/tsconfig": "^1.4.0",
-    "eslint": "^9.23.0",
+    "eslint": "^9.39.1",
     "happy-dom": "^20.0.0",
     "husky": "^9.1.7",
     "only-allow": "^1.2.1",
@@ -66,6 +67,6 @@
     "publint": "^0.3.9",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2",
-    "vitest": "^4.0.6"
+    "vitest": "^4.0.8"
   }
 }
