@@ -1,4 +1,4 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from "tsdown";
 
 export default defineConfig({
   entry: [
@@ -15,4 +15,5 @@ export default defineConfig({
   clean: true,
   dts: true,
   format: ["esm"],
+  target: false,
 });

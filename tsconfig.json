@@ -6,7 +6,7 @@
     "module": "ESNext",
     "target": "ES2022",
     "moduleResolution": "bundler",
-    "types": ["@vitest/browser/providers/playwright"]
+    "types": ["node", "@vitest/browser/providers/playwright"]
   },
   "include": ["**/*.ts"]
 }
