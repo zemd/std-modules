@@ -54,7 +54,7 @@
     "@changesets/cli": "^2.30.0",
     "@swc/core": "^1.15.21",
     "@testing-library/dom": "^10.4.0",
-    "@types/node": "^25.5.0",
+    "@types/node": "^26.0.0",
     "@vitest/browser": "^4.1.2",
     "@vitest/browser-playwright": "^4.1.2",
     "@zemd/eslint-ts": "^3.0.0",
